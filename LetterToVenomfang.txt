@@ -10,6 +10,10 @@
 
 <p>&emsp;In closing, please accept my sincerest regards, and I look forward to further collaboration and success in the future.</p>
 
-<p style="text-align: right;">Yours respectfully,</p>
-
-<p style="text-align: right;">The Black Spider</p>
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+  <img src="BlackSpiderLogo.png">
+  <div>
+    <p style="text-align: right;">Yours respectfully,</p>
+    <p style="text-align: right;">The Black Spider</p>
+  </div>
+</div>
