@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+  <head>
+    <title>Mysterious Scroll</title>
+    <style>
+      button {
+			color: #000000;
+			background-color: #dbae61;
+			font-size: 20px;
+			border: 1px solid #000000;
+			border-radius: 10px;
+			padding: 15px 50px;
+			cursor: pointer
+      }
+      button:hover {
+        background-color: #af6d41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>I'm hosted with GitHub Pages.</p>
+    <button type="button" name="ReadScroll" onclick="ReadScroll()">Read Scroll</button>
+  </body>
+  <script>
+    function ReadScroll() {
+      document.title = "Letter to Venomfang";
+    }
+  </script>
 </html>
