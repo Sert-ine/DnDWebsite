@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Mysterious Scroll</title>
+    <link rel="stylesheet" type="text/css" href="Css.css">
+  </head>
+  <style>
+  body {
+    text-align: center;
+    overflow: hidden;
+    background-color: brown;
+  }
+  b {
+    transform: rotate(atan2(-100%, 100%));
+    -webkit-transform: rotate(var(--ang));
+    width: 10000px;
+    background-color: yellow;
+    padding: 20px;
+    filter: drop-shadow(0px 10px 4px rgba(0,0,0,0.3));
+  }
+  b:before {
+    content: var(--angle);
+  }
+  </style>
+  <body onresize="updateAngle()" onload="updateAngle()">
+    <b id="b">In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - In progress - </b>
+  </body>
+  <script src="Scripts.js"></script>
+  <script>
+    function updateAngle() {
+      var el = document.getElementById("b");
+      var ww = window.innerWidth;
+      var wh = window.innerHeight;
+      console.log(ww + " - " + wh);
+      var ang = Math.atan2(-wh,ww) * 180/Math.PI;
+      el.style.transform = "rotate("+ang+"deg)";
+    }
+  </script>
+</html>

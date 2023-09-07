@@ -1,0 +1,364 @@
+body {
+  --h: calc(100vh - 16px);
+  background-image: url('https://img.freepik.com/premium-photo/seamless-tileable-texture-brown-plowed-soil_226262-465.jpg');
+  background-size: 25%;
+  min-height: var(--h);
+  height: var(--h);
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+button {
+  color: #000000;
+  background-color: #dbae61;
+  font-size: 20px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 15px 50px;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+	&:hover {
+		background-color: #af6d41;
+	};
+}
+
+.transparent {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#Scroll {
+  /*max-width:800px;*/
+  margin:auto;
+  min-width:700px;
+  >div {
+    width: 100%;
+    min-height:100px;
+    /*display:flex;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.5));
+  };
+}
+
+#ScrollOpen {
+  background-image: url('Images/ParchmentTexture.png');
+  width: 47vw!important;
+  padding: 6vh 5vw;
+  margin: auto;
+  background-size: contain;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  align-self: center;
+  box-sizing: content-box;
+  &::before {
+    padding-bottom: 150%!important;
+  };
+  >div {
+    /*height: 66%;*/
+    margin: auto;
+    height: 70%;
+  }
+}
+
+#ScrollText {
+  margin: auto 5%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  img {
+    width: 15%;
+  };
+}
+
+.Hoverable {
+  position: relative;
+  >map {
+    background-color: black;
+    &:hover {
+      background-color: white;
+    }
+  };
+  &::after {
+    --alph: 0;
+    --alphmask: 0.3;
+    --url: 'Images/ScrollClosed.png';
+    pointer-events:none;
+    content:"";
+    width:100%;
+    height:100%;
+    min-height: 100px;
+    display:block;
+    opacity: 0;
+    background-color: rgba(255,255,255,var(--alph));
+    position:absolute;
+    mask: url(var(--url));
+    -webkit-mask-image: url(var(--url));
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-position-x: center;
+    -webkit-mask-position-x: center;
+    mask-position-y: center;
+    -webkit-mask-position-y: center;
+    top: 0;
+  };
+  &:hover::after {
+    animation: fadeIn 0.2s linear 0s 1 normal forwards;
+    /*display: block!important;*/
+  }
+  &:has(.IndexItem) {
+    &::after {
+      --alph: var(--alphmask);
+    };
+  }
+}
+
+.ScrollGrid > * {
+	background-color: hsla(0,100%,100%,0.4);
+}
+
+.ScrollChoice {
+	height:100%;
+	margin: 5px 0;
+	display: flex;
+	flex-direction: column;
+	> a {
+		background-color: hsla(0,100%,100%,0.4);
+		flex-grow: 1;
+	}
+	> *{
+		height:auto!important;
+	}
+	> details {
+		
+		>* {
+			height:auto!important;
+			width: 100%;
+		};
+		>summary {
+			padding: 4px;
+			background-color: #eeeeee;
+			border: none;
+			box-shadow: 1px 1px 2px #bbbbbb;
+			cursor: pointer;
+		};
+		> p {
+			background-color: #eeeeee;
+			padding: 4px;
+			margin: 0;
+			box-shadow: 1px 1px 2px #bbbbbb;
+		}
+	}
+}
+
+.HoverableScroll {
+	background-image: url('Images/ScrollClosed.png');
+	background-size: contain;
+   	background-repeat: no-repeat;
+	&::after {
+		--alph: var(--alphmask);
+		mask: url('Images/ScrollClosed.png');
+		-webkit-mask-image: url('Images/ScrollClosed.png');
+	};
+}
+
+#ScrollClosed
+{
+	margin-bottom: 6vh;
+}
+
+#ScrollCollsion {
+  pointer-events: none;
+  *:not(image) {
+      pointer-events: auto;
+      cursor: pointer;
+      fill: #fff;
+      opacity: 0;
+      width: 701;
+      height: 75;
+  };
+  image {
+    width: 100%;
+    height: 100%;
+    &:has( ~ *)
+    {
+      opacity: 0;
+    };
+    &:has( ~ *:hover)
+    {
+      opacity: 1 !important;
+    };
+  };
+}
+
+.Hidden {
+  display: none!important;
+}
+
+.Grid-container {
+  /*background-color:blue;*/
+  padding: 1rem;
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /*width:100vw;
+  height:100vh;*/
+}
+
+.Ratio {
+  position:relative;
+  overflow:hidden;
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  };
+  > div {
+    padding: inherit;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    >* {
+      /*position:absolute;*/
+    };
+  };
+}
+
+.BackgroundScale {
+	display: block;
+	width: auto;
+	height: auto;
+	background-size: contain;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: center;
+	align-self: center;
+	/*height: calc(100% - 2rem);width: calc(100% - 2rem);top:1rem;left:1rem;*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	/*height: 100vh;
+	width: 100vw;*/
+}
+
+.Grid-item {
+  /*background-color:black;*/
+  padding: 1rem;
+  &::before {
+    /**/
+  };
+  > div
+  {
+    >*{
+      height: 100%;
+    };
+  }
+}
+
+#Logbook {
+	width: 100%;
+	max-height:100%;
+	max-width:1000px;
+	background-color:brown;
+	width:100%;
+	&::before {
+	padding-bottom: 75%;
+	};
+	> div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	};
+	.Grid-container {
+	max-height: 100%;
+	};
+	.Grid-item {
+	background-color: white;
+	};
+}
+
+#Documents {
+  background-image: url('Images/ParchmentTexture.png');
+  background-size: contain;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+}
+
+.IndexItem {
+	height: 100%;
+  background-color: white;
+  text-decoration: none;
+  background-image: none!important;
+  display: flex;
+  flex-direction: column;
+  &::hover {
+    background-image: none!important;
+  };
+  > div {
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:link {
+      color: inherit;
+    };
+    &:visited {
+      color: inherit;
+    };
+    &:hover {
+      color: inherit;
+    };
+    &:active {
+      color: inherit;
+    };
+    &:last-child {
+      background-color: gray;
+    }
+	> img {
+		max-width: 100%;
+		max-height: 100%;
+	};
+  };
+}
+
+.FlexStaticSize {
+	flex: none!important;
+	bottom: 0;
+	float: bottom;
+	display: block;
+	position: absolute;
+	margin: auto;
+	right: 0;
+	left: 0;
+	width: fit-content;
+}
