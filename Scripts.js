@@ -1,4 +1,4 @@
-let BaseUrl = "/";
+var BaseUrl = "/";
 
 function ReadFile(name, callback)
 {
