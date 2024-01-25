@@ -76,9 +76,6 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  img {
-    width: 15%;
-  };
 }
 
 .Hoverable {
