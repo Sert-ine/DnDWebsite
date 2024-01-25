@@ -99,7 +99,7 @@ button {
     opacity: 0;
     background-color: rgba(255,255,255,var(--alph));
     position:absolute;
-    mask: url(var(--url));
+    mask-image: url(var(--url));
     -webkit-mask-image: url(var(--url));
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
@@ -166,7 +166,7 @@ button {
    	background-repeat: no-repeat;
 	&::after {
 		--alph: var(--alphmask);
-		mask: url('Images/ScrollClosed.png');
+		mask-image: url('Images/ScrollClosed.png');
 		-webkit-mask-image: url('Images/ScrollClosed.png');
 	};
 }
