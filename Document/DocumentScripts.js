@@ -1,5 +1,6 @@
 var newdoctitle = "";
 var newdoctxt = '';
+BaseUrl = "../"
 
 addEventListener("load", (event) => {
   let html = document.querySelector('html');
